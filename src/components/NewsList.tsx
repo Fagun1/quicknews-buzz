@@ -19,6 +19,14 @@ const NewsList: React.FC<NewsListProps> = ({
   savedArticles, 
   toggleSave 
 }) => {
+  if (newsItems.length === 0) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <p className="text-gray-500">No news articles available</p>
+      </div>
+    );
+  }
+
   return (
     <Carousel className="w-full h-[calc(100vh-120px)] overflow-hidden" orientation="vertical">
       <CarouselContent className="-mt-4 h-full">
