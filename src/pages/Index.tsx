@@ -6,6 +6,7 @@ import { NewsItem } from "@/types/news";
 import { Loader2, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import NewsSidebar from "@/components/NewsSidebar";
+import { toast } from "@/components/ui/use-toast";
 
 const Index = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
@@ -16,16 +17,23 @@ const Index = () => {
   useEffect(() => {
     const loadNews = async () => {
       try {
+        setLoading(true);
+        console.log("Fetching news for topic:", selectedTopic);
         const latestNews = await fetchLatestNews(selectedTopic);
+        console.log("Received news items:", latestNews.length);
         setNewsItems(latestNews);
         setLoading(false);
       } catch (error) {
         console.error("Failed to fetch news:", error);
+        toast({
+          title: "Error loading news",
+          description: "Failed to load news articles. Please try again.",
+          variant: "destructive",
+        });
         setLoading(false);
       }
     };
 
-    setLoading(true);
     loadNews();
   }, [selectedTopic]);
 
@@ -35,6 +43,12 @@ const Index = () => {
         ? prev.filter(articleId => articleId !== id)
         : [...prev, id]
     );
+    
+    const action = savedArticles.includes(id) ? "removed from" : "added to";
+    toast({
+      title: `Article ${action} saved items`,
+      duration: 2000,
+    });
   };
 
   return (

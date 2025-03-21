@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Share, Bookmark, Clock } from "lucide-react";
 import { NewsItem } from "@/types/news";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { toast } from "@/components/ui/use-toast";
 
 interface NewsCardProps {
   newsItem: NewsItem;
@@ -24,8 +25,30 @@ const NewsCard: React.FC<NewsCardProps> = ({
 }) => {
   const { id, title, summary, image, category, timeAgo } = newsItem;
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: summary,
+        url: window.location.href,
+      }).catch(() => {
+        toast({
+          title: "Sharing not supported",
+          description: "Sharing is not supported in this browser",
+          variant: "destructive",
+        });
+      });
+    } else {
+      toast({
+        title: "Sharing not supported",
+        description: "Sharing is not supported in this browser",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
-    <Card className="overflow-hidden transition-shadow duration-200 hover:shadow-md">
+    <Card className="overflow-hidden transition-shadow duration-200 hover:shadow-md h-full">
       {image && (
         <div className="w-full">
           <AspectRatio ratio={16 / 9}>
@@ -60,11 +83,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
           variant="ghost" 
           size="sm" 
           className="text-gray-600"
-          onClick={() => window.navigator.share?.({
-            title: title,
-            text: summary,
-            url: window.location.href,
-          }).catch(() => alert("Sharing not supported in this browser"))}
+          onClick={handleShare}
         >
           <Share size={18} className="mr-1" />
           Share

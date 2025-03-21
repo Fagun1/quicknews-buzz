@@ -30,6 +30,7 @@ export const sampleNewsData: NewsItem[] = [
     id: "4",
     title: "Scientists identify promising drug candidate for Alzheimer's treatment",
     summary: "Researchers have discovered a compound that effectively clears toxic protein buildup in the brain associated with Alzheimer's disease. Early clinical trials show significant cognitive improvement in patients with mild to moderate symptoms.",
+    image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     category: "Health",
     timeAgo: "12h ago"
   },
@@ -40,5 +41,29 @@ export const sampleNewsData: NewsItem[] = [
     image: "https://images.unsplash.com/photo-1607944024060-0450380ddd33?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
     category: "Finance",
     timeAgo: "1d ago"
+  },
+  {
+    id: "6",
+    title: "World Cup Final: Underdog team stuns favorites in thrilling match",
+    summary: "In a stunning upset, the underdog national team defeated the heavily favored champions in a thrilling penalty shootout, claiming their first-ever World Cup victory and sparking nationwide celebrations.",
+    image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    category: "Sports",
+    timeAgo: "1d ago"
+  },
+  {
+    id: "7",
+    title: "Electric vehicle maker announces breakthrough battery technology",
+    summary: "A leading electric vehicle manufacturer has unveiled a new battery technology that promises to double driving range while cutting charging time in half, potentially addressing two major barriers to EV adoption.",
+    image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    category: "Technology",
+    timeAgo: "2d ago"
+  },
+  {
+    id: "8",
+    title: "Renowned chef opens restaurant featuring sustainable cuisine",
+    summary: "A world-renowned chef has opened a new restaurant focusing entirely on sustainable, locally-sourced ingredients. The menu changes daily based on what's available from nearby farms and fishing operations.",
+    image: "https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    category: "Food",
+    timeAgo: "3d ago"
   }
 ];

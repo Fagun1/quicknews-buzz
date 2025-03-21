@@ -19,6 +19,8 @@ const NewsList: React.FC<NewsListProps> = ({
   savedArticles, 
   toggleSave 
 }) => {
+  console.log("Rendering news list with items:", newsItems.length);
+  
   if (newsItems.length === 0) {
     return (
       <div className="h-full flex items-center justify-center">
