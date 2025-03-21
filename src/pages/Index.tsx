@@ -1,12 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import { 
+  Card, 
+  CardContent, 
+  CardFooter,
+  CardHeader
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Share, Bookmark, Clock } from "lucide-react";
+import NewsList from "@/components/NewsList";
+import { sampleNewsData } from "@/data/sampleNews";
 
 const Index = () => {
+  const [savedArticles, setSavedArticles] = useState<string[]>([]);
+
+  const toggleSave = (id: string) => {
+    setSavedArticles(prev => 
+      prev.includes(id) 
+        ? prev.filter(articleId => articleId !== id)
+        : [...prev, id]
+    );
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b sticky top-0 z-10">
+        <div className="container mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-center">QuickNews</h1>
+        </div>
+      </header>
+      
+      <main className="container mx-auto px-4 py-6 max-w-md">
+        <NewsList 
+          newsItems={sampleNewsData} 
+          savedArticles={savedArticles}
+          toggleSave={toggleSave}
+        />
+      </main>
     </div>
   );
 };
