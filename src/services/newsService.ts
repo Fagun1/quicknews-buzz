@@ -1,6 +1,6 @@
 
 import { NewsItem } from "@/types/news";
-import sampleNews from "@/data/sampleNews";
+import { sampleNewsData } from "@/data/sampleNews";
 
 // Simulating a fetch from API with a delay
 export const fetchLatestNews = async (topic: string = "all"): Promise<NewsItem[]> => {
@@ -12,7 +12,7 @@ export const fetchLatestNews = async (topic: string = "all"): Promise<NewsItem[]
   
   // For demo purposes, we're filtering the sample data based on topic
   if (topic === "all") {
-    return sampleNews;
+    return sampleNewsData;
   }
   
   // Map our internal topics to categories in the sample data
@@ -31,7 +31,7 @@ export const fetchLatestNews = async (topic: string = "all"): Promise<NewsItem[]
   
   // Filter sample news by category
   // For demo, we'll just return a subset of the news items to simulate different topics
-  return sampleNews.filter((item, index) => {
+  return sampleNewsData.filter((item, index) => {
     // This is just a simple way to simulate different news for different topics
     // In a real app, each item would have a proper category field
     if (topic === "trending") {
