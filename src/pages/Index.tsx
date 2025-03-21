@@ -1,13 +1,5 @@
 
 import { useState } from "react";
-import { 
-  Card, 
-  CardContent, 
-  CardFooter,
-  CardHeader
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Share, Bookmark, Clock } from "lucide-react";
 import NewsList from "@/components/NewsList";
 import { sampleNewsData } from "@/data/sampleNews";
 
@@ -23,19 +15,21 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-gray-50">
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <h1 className="text-2xl font-bold text-center">QuickNews</h1>
         </div>
       </header>
       
-      <main className="container mx-auto px-4 py-6 max-w-md">
-        <NewsList 
-          newsItems={sampleNewsData} 
-          savedArticles={savedArticles}
-          toggleSave={toggleSave}
-        />
+      <main className="flex-1 overflow-hidden">
+        <div className="h-full max-w-md mx-auto">
+          <NewsList 
+            newsItems={sampleNewsData} 
+            savedArticles={savedArticles}
+            toggleSave={toggleSave}
+          />
+        </div>
       </main>
     </div>
   );
